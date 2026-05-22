@@ -7,7 +7,7 @@ type SoundEffectOutputFormat string
 type TaskStatus string
 
 const (
-	ModelTTSTurbo        SpeechModel = "text-to-speech-turbo-2-5"
+	ModelTTSTurbo        SpeechModel = "text-to-speech-turbo-v2.5"
 	ModelTTSMultilingual SpeechModel = "text-to-speech-multilingual-v2"
 
 	OutputMP344100128 SoundEffectOutputFormat = "mp3_44100_128"
@@ -33,7 +33,7 @@ type AudioTaskResponse struct {
 }
 
 type TextToSpeechParams struct {
-	Model           SpeechModel `json:"model" help:"required; text-to-speech-turbo-2-5 or text-to-speech-multilingual-v2"`
+	Model           SpeechModel `json:"model" help:"required; text-to-speech-turbo-v2.5 or text-to-speech-multilingual-v2"`
 	Text            string      `json:"text" help:"required; max 5000 chars"`
 	Voice           string      `json:"voice,omitempty" help:"optional; required for multilingual model"`
 	CallbackURL     string      `json:"callback_url,omitempty" help:"optional; HTTPS callback URL"`

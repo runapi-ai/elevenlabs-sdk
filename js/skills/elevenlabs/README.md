@@ -1,4 +1,25 @@
-# ElevenLabs API Skill for RunAPI
+<p align="center">
+  <a href="https://github.com/runapi-ai/elevenlabs">
+    <h3 align="center">ElevenLabs API Skill for RunAPI</h3>
+  </a>
+</p>
+
+<p align="center">
+  Install this agent skill, inspect ElevenLabs fields, then run jobs through the RunAPI CLI.
+</p>
+
+<p align="center">
+  <a href="https://runapi.ai/models/elevenlabs"><strong>Model Reference</strong></a> · <a href="https://github.com/runapi-ai/cli"><strong>CLI</strong></a> · <a href="https://github.com/runapi-ai/elevenlabs-sdk"><strong>SDK</strong></a>
+</p>
+
+<div align="center">
+
+[![skills.sh](https://www.skills.sh/b/runapi-ai/elevenlabs)](https://www.skills.sh/runapi-ai/elevenlabs/elevenlabs)
+[![ClawHub](https://img.shields.io/badge/ClawHub-runapi--elevenlabs-111827)](https://clawhub.ai/runapi-ai/runapi-elevenlabs)
+[![License](https://img.shields.io/github/license/runapi-ai/elevenlabs)](https://github.com/runapi-ai/elevenlabs/blob/main/LICENSE)
+
+</div>
+<br/>
 
 Generate speech, dialogue, sound effects, transcriptions, and isolated audio with the ElevenLabs SDK. This skill helps Claude Code, Codex, Gemini CLI, Cursor, and 50+ agents integrate ElevenLabs through RunAPI.
 
@@ -10,7 +31,18 @@ The canonical agent file is `skills/elevenlabs/SKILL.md`.
 npx skills add runapi-ai/elevenlabs -g
 ```
 
-Or manually: clone this repo and copy `skills/elevenlabs/` into your agent's skills directory.
+Or paste this prompt to your AI agent:
+
+```text
+Install the elevenlabs skill for me:
+
+1. Clone https://github.com/runapi-ai/elevenlabs
+2. Copy the skills/elevenlabs/ directory into your
+   user-level skills directory (e.g. ~/.claude/skills/
+   for Claude Code, ~/.codex/skills/ for Codex).
+3. Verify that SKILL.md is present.
+4. Confirm the install path when done.
+```
 
 ## Quick example
 
@@ -19,7 +51,7 @@ import { ElevenlabsClient } from '@runapi.ai/elevenlabs';
 
 const client = new ElevenlabsClient();
 const result = await client.textToSpeech.run({
-  model: 'text-to-speech-turbo-2-5',
+  model: 'text-to-speech-turbo-v2.5',
   text: 'Hello from RunAPI.',
   voice: 'Rachel',
 });

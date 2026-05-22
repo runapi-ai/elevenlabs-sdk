@@ -3,7 +3,7 @@
 module RunApi
   module Elevenlabs
     module Types
-      TEXT_TO_SPEECH_MODELS = %w[text-to-speech-turbo-2-5 text-to-speech-multilingual-v2].freeze
+      TEXT_TO_SPEECH_MODELS = %w[text-to-speech-turbo-v2.5 text-to-speech-multilingual-v2].freeze
       TEXT_TO_SOUND_OUTPUT_FORMATS = %w[
         mp3_22050_32 mp3_44100_32 mp3_44100_64 mp3_44100_96 mp3_44100_128 mp3_44100_192
         pcm_8000 pcm_16000 pcm_22050 pcm_24000 pcm_44100 pcm_48000

@@ -20,14 +20,14 @@ describe('Elevenlabs resources', () => {
     const textToSpeech = new TextToSpeech(mockHttp);
 
     await textToSpeech.create({
-      model: 'text-to-speech-turbo-2-5',
+      model: 'text-to-speech-turbo-v2.5',
       text: 'Hello',
       voice: 'Rachel',
     });
 
     expect(mockHttp.request).toHaveBeenCalledWith('POST', '/api/v1/elevenlabs/text_to_speech', {
       body: {
-        model: 'text-to-speech-turbo-2-5',
+        model: 'text-to-speech-turbo-v2.5',
         text: 'Hello',
         voice: 'Rachel',
       },

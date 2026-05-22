@@ -1,7 +1,7 @@
 import type { AsyncTaskStatus } from '@runapi.ai/core';
 
 export type ElevenlabsSpeechModel =
-  | 'text-to-speech-turbo-2-5'
+  | 'text-to-speech-turbo-v2.5'
   | 'text-to-speech-multilingual-v2';
 
 export type ElevenlabsSoundEffectOutputFormat =
