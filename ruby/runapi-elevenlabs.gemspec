@@ -4,7 +4,7 @@ Dir.chdir(__dir__) do
 
   Gem::Specification.new do |spec|
     spec.name = "runapi-elevenlabs"
-    spec.version = "0.2.3"
+    spec.version = "0.2.4"
     spec.authors = [ "RunAPI" ]
     spec.email = [ "contact@runapi.ai" ]
 
@@ -13,15 +13,16 @@ Dir.chdir(__dir__) do
     spec.homepage = "https://runapi.ai/models/elevenlabs"
     spec.license = "Apache-2.0"
     spec.required_ruby_version = ">= 3.1.0"
-
     spec.metadata["homepage_uri"] = "https://runapi.ai/models/elevenlabs"
-    spec.metadata["documentation_uri"] = "https://runapi.ai/models/elevenlabs"
+    spec.metadata["documentation_uri"] = "https://github.com/runapi-ai/elevenlabs-sdk/blob/main/README.md"
     spec.metadata["source_code_uri"] = "https://github.com/runapi-ai/elevenlabs-sdk"
     spec.metadata["changelog_uri"] = "https://github.com/runapi-ai/elevenlabs-sdk/blob/main/CHANGELOG.md"
+
+
 
     spec.files = Dir.glob("lib/**/*") + %w[LICENSE]
     spec.require_paths = [ "lib" ]
 
-    spec.add_dependency "runapi-core", "~> 0.2.3"
+    spec.add_dependency "runapi-core", "~> 0.2.4"
   end
 end
