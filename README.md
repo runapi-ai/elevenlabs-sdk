@@ -1,4 +1,24 @@
-# ElevenLabs API SDK for RunAPI
+<p align="center">
+  <a href="https://runapi.ai"><img src="https://runapi.ai/icon.svg" height="56" alt="RunAPI"></a>
+</p>
+
+<h3 align="center">
+  <a href="https://github.com/runapi-ai/elevenlabs-sdk">ElevenLabs API SDK for RunAPI</a>
+</h3>
+
+<p align="center">
+  ElevenLabs API SDKs for JavaScript, Ruby, and Go on RunAPI.
+</p>
+
+<div align="center">
+
+[![npm](https://img.shields.io/npm/v/@runapi.ai/elevenlabs)](https://www.npmjs.com/package/@runapi.ai/elevenlabs)
+[![RubyGems](https://img.shields.io/gem/v/runapi-elevenlabs)](https://rubygems.org/gems/runapi-elevenlabs)
+[![Go Reference](https://pkg.go.dev/badge/github.com/runapi-ai/elevenlabs-sdk/go.svg)](https://pkg.go.dev/github.com/runapi-ai/elevenlabs-sdk/go)
+[![License](https://img.shields.io/github/license/runapi-ai/elevenlabs-sdk)](https://github.com/runapi-ai/elevenlabs-sdk/blob/main/LICENSE)
+
+</div>
+<br/>
 
 The elevenlabs api SDK packages JavaScript, Ruby, and Go clients for ElevenLabs on RunAPI. Use this elevenlabs api SDK for text-to-speech, dialogue generation, sound effects, speech transcription, and audio isolation workflows that need typed installs, JSON request bodies, task polling, and consistent RunAPI errors across services.
 
