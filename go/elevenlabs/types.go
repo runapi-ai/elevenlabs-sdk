@@ -33,13 +33,13 @@ type AudioTaskResponse struct {
 }
 
 type TextToSpeechParams struct {
-	Model           SpeechModel `json:"model" help:"required; text-to-speech-turbo-v2.5 or text-to-speech-multilingual-v2"`
+	Model           SpeechModel `json:"model" help:"required; model slug"`
 	Text            string      `json:"text" help:"required; max 5000 chars"`
-	Voice           string      `json:"voice,omitempty" help:"optional; required for multilingual model"`
+	Voice           string      `json:"voice,omitempty" help:"optional for turbo, required for multilingual; accepts a voice name or voice ID; turbo defaults to EkK5I93UQWFDigLMpZcX"`
 	CallbackURL     string      `json:"callback_url,omitempty" help:"optional; HTTPS callback URL"`
-	Stability       *float64    `json:"stability,omitempty" help:"optional; 0-1"`
+	Stability       *float64    `json:"stability,omitempty" help:"optional; voice stability"`
 	SimilarityBoost *float64    `json:"similarity_boost,omitempty" help:"optional; 0-1"`
-	Style           *float64    `json:"style,omitempty" help:"optional; 0-1"`
+	Style           *float64    `json:"style,omitempty" help:"optional; style preset"`
 	Speed           *float64    `json:"speed,omitempty" help:"optional; 0.7-1.2"`
 	Timestamps      *bool       `json:"timestamps,omitempty" help:"optional; return word timestamps"`
 	PreviousText    string      `json:"previous_text,omitempty" help:"optional; max 5000 chars"`
@@ -55,7 +55,7 @@ type DialogueLine struct {
 type TextToDialogueParams struct {
 	Dialogue     []DialogueLine `json:"dialogue" help:"required; dialogue lines with text and voice"`
 	CallbackURL  string         `json:"callback_url,omitempty" help:"optional; HTTPS callback URL"`
-	Stability    *float64       `json:"stability,omitempty" help:"optional; 0, 0.5, or 1"`
+	Stability    *float64       `json:"stability,omitempty" help:"optional; voice stability"`
 	LanguageCode string         `json:"language_code,omitempty" help:"optional; language code"`
 }
 
@@ -65,11 +65,11 @@ type TextToSoundParams struct {
 	Loop            *bool                   `json:"loop,omitempty" help:"optional; loop the generated sound"`
 	DurationSeconds *float64                `json:"duration_seconds,omitempty" help:"optional; 0.5-22"`
 	PromptInfluence *float64                `json:"prompt_influence,omitempty" help:"optional; 0-1"`
-	OutputFormat    SoundEffectOutputFormat `json:"output_format,omitempty" help:"optional; output codec and bitrate"`
+	OutputFormat    SoundEffectOutputFormat `json:"output_format,omitempty" help:"optional; output format"`
 }
 
 type SpeechToTextParams struct {
-	AudioURL       string `json:"audio_url" help:"required; uploaded audio URL"`
+	SourceAudioURL string `json:"source_audio_url" help:"required; source audio URL"`
 	CallbackURL    string `json:"callback_url,omitempty" help:"optional; HTTPS callback URL"`
 	LanguageCode   string `json:"language_code,omitempty" help:"optional; language code hint"`
 	TagAudioEvents *bool  `json:"tag_audio_events,omitempty" help:"optional; tag laughter/applause/etc"`
@@ -82,6 +82,6 @@ type SpeechToTextResponse struct {
 }
 
 type IsolateAudioParams struct {
-	AudioURL    string `json:"audio_url" help:"required; uploaded audio URL"`
-	CallbackURL string `json:"callback_url,omitempty" help:"optional; HTTPS callback URL"`
+	SourceAudioURL string `json:"source_audio_url" help:"required; source audio URL"`
+	CallbackURL    string `json:"callback_url,omitempty" help:"optional; HTTPS callback URL"`
 }

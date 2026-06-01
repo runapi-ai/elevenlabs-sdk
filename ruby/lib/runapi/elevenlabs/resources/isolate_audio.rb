@@ -21,7 +21,7 @@ module RunApi
 
         def create(**params)
           params = compact_params(params)
-          raise Core::ValidationError, "audio_url is required" unless param(params, :audio_url)
+          raise Core::ValidationError, "source_audio_url is required" unless param(params, :source_audio_url)
           request(:post, ENDPOINT, body: params)
         end
 

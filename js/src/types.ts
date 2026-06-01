@@ -45,6 +45,11 @@ export interface AudioTaskResponse {
 export interface TextToSpeechParams {
   model: ElevenlabsSpeechModel;
   text: string;
+  /**
+   * Voice name or voice ID. Required for text-to-speech-multilingual-v2;
+   * optional for text-to-speech-turbo-v2.5, which defaults to
+   * EkK5I93UQWFDigLMpZcX when omitted.
+   */
   voice?: string;
   callback_url?: string;
   stability?: number;
@@ -79,7 +84,7 @@ export interface TextToSoundParams {
 }
 
 export interface SpeechToTextParams {
-  audio_url: string;
+  source_audio_url: string;
   callback_url?: string;
   language_code?: string;
   tag_audio_events?: boolean;
@@ -95,7 +100,7 @@ export interface SpeechToTextResponse {
 }
 
 export interface IsolateAudioParams {
-  audio_url: string;
+  source_audio_url: string;
   callback_url?: string;
 }
 

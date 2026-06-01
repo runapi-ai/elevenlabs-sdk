@@ -22,14 +22,14 @@ describe('Elevenlabs resources', () => {
     await textToSpeech.create({
       model: 'text-to-speech-turbo-v2.5',
       text: 'Hello',
-      voice: 'Rachel',
+      voice: 'EkK5I93UQWFDigLMpZcX',
     });
 
     expect(mockHttp.request).toHaveBeenCalledWith('POST', '/api/v1/elevenlabs/text_to_speech', {
       body: {
         model: 'text-to-speech-turbo-v2.5',
         text: 'Hello',
-        voice: 'Rachel',
+        voice: 'EkK5I93UQWFDigLMpZcX',
       },
     });
   });
@@ -75,6 +75,20 @@ describe('Elevenlabs resources', () => {
     expect(result.text).toBe('Hello');
   });
 
+  it('creates speechToText tasks with source audio', async () => {
+    vi.mocked(mockHttp.request).mockResolvedValueOnce({ id: 'task-4' });
+    const speechToText = new SpeechToText(mockHttp);
+
+    await speechToText.create({ source_audio_url: 'https://file.runapi.ai/source.mp3', diarize: true });
+
+    expect(mockHttp.request).toHaveBeenCalledWith('POST', '/api/v1/elevenlabs/speech_to_text', {
+      body: {
+        source_audio_url: 'https://file.runapi.ai/source.mp3',
+        diarize: true,
+      },
+    });
+  });
+
   it('gets isolate-audio tasks by id', async () => {
     vi.mocked(mockHttp.request).mockResolvedValueOnce({ id: 'task-5', status: 'completed', audios: [{ url: 'https://file.runapi.ai/audio.mp3' }] });
     const isolateAudio = new IsolateAudio(mockHttp);
@@ -83,5 +97,18 @@ describe('Elevenlabs resources', () => {
 
     expect(mockHttp.request).toHaveBeenCalledWith('GET', '/api/v1/elevenlabs/isolate_audio/task-5', {});
     expect(result.audios?.[0]?.url).toBe('https://file.runapi.ai/audio.mp3');
+  });
+
+  it('creates isolate-audio tasks with source audio', async () => {
+    vi.mocked(mockHttp.request).mockResolvedValueOnce({ id: 'task-5' });
+    const isolateAudio = new IsolateAudio(mockHttp);
+
+    await isolateAudio.create({ source_audio_url: 'https://file.runapi.ai/source.mp3' });
+
+    expect(mockHttp.request).toHaveBeenCalledWith('POST', '/api/v1/elevenlabs/isolate_audio', {
+      body: {
+        source_audio_url: 'https://file.runapi.ai/source.mp3',
+      },
+    });
   });
 });

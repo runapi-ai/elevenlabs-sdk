@@ -34,7 +34,7 @@ Generate speech, dialogue, and sound with ElevenLabs through RunAPI. The default
 
 The `runapi` binary is the runtime dependency. Run `runapi auth status` first. For agents and headless runs, prefer `RUNAPI_API_KEY` or import it into saved config with `printf '%s' "$RUNAPI_API_KEY" | runapi auth import-token --token -`. Use `runapi login` only when the user explicitly wants interactive browser auth.
 
-Inspect the available actions and request fields with CLI help:
+Inspect the available commands and request fields with CLI help:
 
 ```shell
 runapi elevenlabs --help
@@ -54,7 +54,7 @@ runapi elevenlabs text-to-speech --async --input-file request.json
 runapi wait <task-id> --service elevenlabs --action text-to-speech
 ```
 
-Available actions: `text-to-speech`, `text-to-dialogue`, `text-to-sound`, `speech-to-text`, `isolate-audio`.
+Available commands: `text-to-speech`, `text-to-dialogue`, `text-to-sound`, `speech-to-text`, `isolate-audio`.
 
 ## SDK integration path
 

@@ -53,7 +53,7 @@ const client = new ElevenlabsClient();
 const result = await client.textToSpeech.run({
   model: 'text-to-speech-turbo-v2.5',
   text: 'Hello from RunAPI.',
-  voice: 'Rachel',
+  voice: 'EkK5I93UQWFDigLMpZcX',
 });
 const audioUrl = result.audios[0].url;
 ```

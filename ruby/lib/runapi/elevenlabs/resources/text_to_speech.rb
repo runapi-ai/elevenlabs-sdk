@@ -36,6 +36,7 @@ module RunApi
           raise Core::ValidationError, "model is required" unless model
           raise Core::ValidationError, "Invalid model: #{model}" unless Types::TEXT_TO_SPEECH_MODELS.include?(model)
           raise Core::ValidationError, "text is required" unless param(params, :text)
+          raise Core::ValidationError, "voice is required for text-to-speech-multilingual-v2" if model == "text-to-speech-multilingual-v2" && !param(params, :voice)
         end
       end
     end

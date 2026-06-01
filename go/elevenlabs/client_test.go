@@ -26,7 +26,7 @@ func (s *stubHTTPClient) Request(_ context.Context, method, path string, opts *c
 func TestTextToSpeechCreate(t *testing.T) {
 	stub := &stubHTTPClient{}
 	client := NewClientWithHTTP(stub)
-	_, err := client.TextToSpeech.Create(context.Background(), TextToSpeechParams{Model: ModelTTSTurbo, Text: "Hello", Voice: "Rachel"})
+	_, err := client.TextToSpeech.Create(context.Background(), TextToSpeechParams{Model: ModelTTSTurbo, Text: "Hello", Voice: "EkK5I93UQWFDigLMpZcX"})
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -36,6 +36,9 @@ func TestTextToSpeechCreate(t *testing.T) {
 	body := stub.body.(map[string]any)
 	if body["model"] != string(ModelTTSTurbo) || body["text"] != "Hello" {
 		t.Fatalf("unexpected body: %v", body)
+	}
+	if body["voice"] != "EkK5I93UQWFDigLMpZcX" {
+		t.Fatalf("unexpected voice: %v", body)
 	}
 }
 
@@ -75,6 +78,23 @@ func TestSpeechToTextGet(t *testing.T) {
 	}
 }
 
+func TestSpeechToTextCreate(t *testing.T) {
+	stub := &stubHTTPClient{}
+	client := NewClientWithHTTP(stub)
+	diarize := true
+	_, err := client.SpeechToText.Create(context.Background(), SpeechToTextParams{SourceAudioURL: "https://file.runapi.ai/source.mp3", Diarize: &diarize})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if stub.method != "POST" || stub.path != "/api/v1/elevenlabs/speech_to_text" {
+		t.Fatalf("unexpected request: %s %s", stub.method, stub.path)
+	}
+	body := stub.body.(map[string]any)
+	if body["source_audio_url"] != "https://file.runapi.ai/source.mp3" || body["audio_url"] != nil {
+		t.Fatalf("unexpected body: %v", body)
+	}
+}
+
 func TestIsolateAudioGet(t *testing.T) {
 	stub := &stubHTTPClient{}
 	client := NewClientWithHTTP(stub)
@@ -84,5 +104,21 @@ func TestIsolateAudioGet(t *testing.T) {
 	}
 	if stub.method != "GET" || stub.path != "/api/v1/elevenlabs/isolate_audio/task_xyz" {
 		t.Fatalf("unexpected request: %s %s", stub.method, stub.path)
+	}
+}
+
+func TestIsolateAudioCreate(t *testing.T) {
+	stub := &stubHTTPClient{}
+	client := NewClientWithHTTP(stub)
+	_, err := client.IsolateAudio.Create(context.Background(), IsolateAudioParams{SourceAudioURL: "https://file.runapi.ai/source.mp3"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if stub.method != "POST" || stub.path != "/api/v1/elevenlabs/isolate_audio" {
+		t.Fatalf("unexpected request: %s %s", stub.method, stub.path)
+	}
+	body := stub.body.(map[string]any)
+	if body["source_audio_url"] != "https://file.runapi.ai/source.mp3" || body["audio_url"] != nil {
+		t.Fatalf("unexpected body: %v", body)
 	}
 }
