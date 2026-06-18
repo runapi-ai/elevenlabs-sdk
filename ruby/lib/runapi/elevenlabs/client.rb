@@ -2,14 +2,30 @@
 
 module RunApi
   module Elevenlabs
-    class Client
-      attr_reader :text_to_speech, :text_to_dialogue, :text_to_sound, :speech_to_text, :isolate_audio
+    # ElevenLabs audio API client for speech synthesis, multi-speaker dialogue,
+    # sound effects, transcription, and vocal isolation.
+    #
+    # @example
+    #   client = RunApi::Elevenlabs::Client.new(api_key: "sk-...")
+    #   result = client.text_to_speech.run(
+    #     model: "text-to-speech-turbo-v2.5",
+    #     text: "Hello, world!"
+    #   )
+    #   puts result.audios.first.url
+    class Client < RunApi::Core::Client
+      # @return [Resources::TextToSpeech] Single-speaker speech synthesis operations.
+      attr_reader :text_to_speech
+      # @return [Resources::TextToDialogue] Multi-speaker dialogue synthesis operations.
+      attr_reader :text_to_dialogue
+      # @return [Resources::TextToSound] Sound effect generation operations.
+      attr_reader :text_to_sound
+      # @return [Resources::SpeechToText] Audio transcription operations.
+      attr_reader :speech_to_text
+      # @return [Resources::IsolateAudio] Vocal isolation operations.
+      attr_reader :isolate_audio
 
       def initialize(api_key: nil, **options)
-        @api_key = Core::Auth.resolve_api_key(api_key)
-
-        client_options = Core::ClientOptions.new(api_key: @api_key, **options)
-        http = client_options.http_client || Core::HttpClient.new(client_options)
+        super
 
         @text_to_speech = Resources::TextToSpeech.new(http)
         @text_to_dialogue = Resources::TextToDialogue.new(http)
