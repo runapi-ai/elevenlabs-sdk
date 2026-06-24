@@ -76,7 +76,11 @@ type IsolateAudio struct{ http core.HTTPClient }
 // Create submits an ElevenLabs text-to-speech task and returns immediately with a task id.
 func (r *TextToSpeech) Create(ctx context.Context, params TextToSpeechParams, opts ...option.RequestOption) (*core.TaskCreateResponse, error) {
 	requestOptions, _ := option.ResolveRequestOptions(opts...)
-	return core.PostJSON[core.TaskCreateResponse](ctx, r.http, textToSpeechPath, core.CompactParams(params), requestOptions)
+	body := core.CompactParams(params)
+	if err := core.ValidateParams(contractSchema["text-to-speech"], body); err != nil {
+		return nil, err
+	}
+	return core.PostJSON[core.TaskCreateResponse](ctx, r.http, textToSpeechPath, body, requestOptions)
 }
 
 // Get fetches the current status of an ElevenLabs text-to-speech task by id.

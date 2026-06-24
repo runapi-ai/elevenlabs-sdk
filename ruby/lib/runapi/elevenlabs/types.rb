@@ -3,7 +3,6 @@
 module RunApi
   module Elevenlabs
     module Types
-      TEXT_TO_SPEECH_MODELS = %w[text-to-speech-turbo-v2.5 text-to-speech-multilingual-v2].freeze
       DEFAULT_TEXT_TO_SPEECH_VOICE = "EkK5I93UQWFDigLMpZcX"
       TEXT_TO_SOUND_OUTPUT_FORMATS = %w[
         mp3_22050_32 mp3_44100_32 mp3_44100_64 mp3_44100_96 mp3_44100_128 mp3_44100_192

@@ -168,13 +168,19 @@ def test_speech_to_text_run_narrows_completed_type():
 
 def test_text_to_speech_requires_model():
     client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="model is required"):
+    with pytest.raises(
+        ValidationError,
+        match="model must be one of: text-to-speech-multilingual-v2, text-to-speech-turbo-v2.5",
+    ):
         client.text_to_speech.create(text="hi")
 
 
 def test_text_to_speech_rejects_unknown_model():
     client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="Invalid model: nope"):
+    with pytest.raises(
+        ValidationError,
+        match="model must be one of: text-to-speech-multilingual-v2, text-to-speech-turbo-v2.5",
+    ):
         client.text_to_speech.create(model="nope", text="hi")
 
 
@@ -186,7 +192,7 @@ def test_text_to_speech_requires_text():
 
 def test_text_to_speech_multilingual_requires_voice():
     client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="voice is required for text-to-speech-multilingual-v2"):
+    with pytest.raises(ValidationError, match="voice is required when model is text-to-speech-multilingual-v2"):
         client.text_to_speech.create(model="text-to-speech-multilingual-v2", text="hi")
 
 

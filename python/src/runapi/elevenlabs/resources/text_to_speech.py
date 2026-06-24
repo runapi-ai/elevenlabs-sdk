@@ -6,8 +6,8 @@ from typing import Any, Dict
 
 from runapi.core import Resource, ValidationError
 
+from ..contract_gen import CONTRACT
 from ..types import (
-    TEXT_TO_SPEECH_MODELS,
     AudioTaskResponse,
     CompletedAudioTaskResponse,
 )
@@ -58,12 +58,6 @@ class TextToSpeech(Resource):
         return self._request("get", f"{self.ENDPOINT}/{id}")
 
     def _validate_params(self, params: Dict[str, Any]) -> None:
-        model = params.get("model")
-        if model is None:
-            raise ValidationError("model is required")
-        if model not in TEXT_TO_SPEECH_MODELS:
-            raise ValidationError(f"Invalid model: {model}")
-        if params.get("text") is None:
-            raise ValidationError("text is required")
-        if model == "text-to-speech-multilingual-v2" and params.get("voice") is None:
+        self._validate_contract(CONTRACT["text-to-speech"], params)
+        if params.get("model") == "text-to-speech-multilingual-v2" and params.get("voice") is None:
             raise ValidationError("voice is required for text-to-speech-multilingual-v2")

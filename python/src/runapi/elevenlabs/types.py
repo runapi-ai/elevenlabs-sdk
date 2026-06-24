@@ -4,10 +4,6 @@ from __future__ import annotations
 
 from runapi.core import BaseModel, TaskResponse, optional, required
 
-TEXT_TO_SPEECH_MODELS = [
-    "text-to-speech-turbo-v2.5",
-    "text-to-speech-multilingual-v2",
-]
 DEFAULT_TEXT_TO_SPEECH_VOICE = "EkK5I93UQWFDigLMpZcX"
 TEXT_TO_SOUND_OUTPUT_FORMATS = [
     "mp3_22050_32",

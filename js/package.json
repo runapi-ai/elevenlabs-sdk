@@ -1,7 +1,10 @@
 {
   "name": "@runapi.ai/elevenlabs",
+  "runapi": {
+    "slug": "elevenlabs"
+  },
   "version": "0.2.7",
-  "description": "RunAPI ElevenLabs SDK for JavaScript, Ruby, and Go",
+  "description": "RunAPI ElevenLabs SDK for text-to-speech, dialogue generation, sound effects, speech transcription, and audio isolation workflows in JavaScript, Python, Ruby, Go, and Java",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -48,7 +51,15 @@
     "sdk",
     "typescript",
     "ruby",
-    "golang"
+    "golang",
+    "java",
+    "python",
+    "maven",
+    "gradle",
+    "audio-generation",
+    "speech-to-text",
+    "text-to-speech",
+    "elevenlabs-api"
   ],
   "author": "RunAPI",
   "license": "Apache-2.0",

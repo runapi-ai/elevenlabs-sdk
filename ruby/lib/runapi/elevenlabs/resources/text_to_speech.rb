@@ -32,11 +32,10 @@ module RunApi
         private
 
         def validate_params!(params)
-          model = param(params, :model)
-          raise Core::ValidationError, "model is required" unless model
-          raise Core::ValidationError, "Invalid model: #{model}" unless Types::TEXT_TO_SPEECH_MODELS.include?(model)
-          raise Core::ValidationError, "text is required" unless param(params, :text)
-          raise Core::ValidationError, "voice is required for text-to-speech-multilingual-v2" if model == "text-to-speech-multilingual-v2" && !param(params, :voice)
+          validate_contract!(CONTRACT["text-to-speech"], params)
+          if param(params, :model) == "text-to-speech-multilingual-v2" && !param(params, :voice)
+            raise Core::ValidationError, "voice is required for text-to-speech-multilingual-v2"
+          end
         end
       end
     end
