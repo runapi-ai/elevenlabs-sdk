@@ -14,22 +14,22 @@ module RunApi
           @http = http
         end
 
-        def run(**params)
-          task = create(**params)
-          poll_until_complete { get(task.id) }
+        def run(options: nil, **params)
+          task = create(options: options, **params)
+          poll_until_complete { get(task.id, options: options) }
         end
 
-        def create(**params)
+        def create(options: nil, **params)
           params = compact_params(params)
           raise Core::ValidationError, "text is required" unless param(params, :text)
           if param(params, :output_format) && !Types::TEXT_TO_SOUND_OUTPUT_FORMATS.include?(param(params, :output_format))
             raise Core::ValidationError, "Invalid output_format"
           end
-          request(:post, ENDPOINT, body: params)
+          request(:post, ENDPOINT, body: params, options: options)
         end
 
-        def get(id)
-          request(:get, "#{ENDPOINT}/#{id}")
+        def get(id, options: nil)
+          request(:get, "#{ENDPOINT}/#{id}", options: options)
         end
       end
     end

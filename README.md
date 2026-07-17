@@ -7,7 +7,7 @@
 </h3>
 
 <p align="center">
-  ElevenLabs API SDKs for JavaScript, Python, Ruby, Go, and Java on RunAPI.
+  ElevenLabs API SDKs for JavaScript, Python, Ruby, Go, Java, and PHP on RunAPI.
 </p>
 
 <div align="center">
@@ -22,9 +22,9 @@
 </div>
 <br/>
 
-The ElevenLabs API SDK packages JavaScript, Python, Ruby, Go, and Java clients for ElevenLabs on RunAPI. Use it for text-to-speech, dialogue generation, sound effects, speech transcription, and audio isolation workflows when your app needs typed request builders, predictable task polling, file upload helpers, account helpers, and consistent RunAPI errors.
+The ElevenLabs API SDK packages JavaScript, Python, Ruby, Go, Java, and PHP clients for ElevenLabs on RunAPI. Use it for text-to-speech, dialogue generation, sound effects, speech transcription, and audio isolation workflows when your app needs typed request builders, predictable task polling, file upload helpers, account helpers, and consistent RunAPI errors.
 
-ElevenLabs is listed in the RunAPI model catalog at https://runapi.ai/models/elevenlabs. Variant pages below carry pricing, rate-limit, and commercial-usage details. The public `elevenlabs-sdk` repository groups the language packages, examples, CI, and release tags for this model.
+ElevenLabs is listed in the RunAPI model catalog at https://runapi.ai/models/elevenlabs. Variant pages below carry pricing, rate-limit, and commercial-usage details. The public `elevenlabs-sdk` repository groups the non-PHP language packages, examples, CI, and release tags for this model. The PHP package is released from a split Composer repository.
 
 ## Install
 
@@ -61,6 +61,8 @@ dependencies {
   implementation("ai.runapi:runapi-elevenlabs")
 }
 ```
+
+The PHP package is published from the split Composer repository as `runapi-ai/elevenlabs`; see https://github.com/runapi-ai/elevenlabs-php for PHP install and examples.
 
 ## What you can build
 
@@ -110,6 +112,7 @@ Most media endpoints are asynchronous. `create()` submits a task and returns its
 - SDK docs: https://runapi.ai/docs#sdk-elevenlabs
 - Product docs: https://runapi.ai/docs#elevenlabs
 - SDK repository: https://github.com/runapi-ai/elevenlabs-sdk
+- PHP package repository: https://github.com/runapi-ai/elevenlabs-php
 - Skill repository: https://github.com/runapi-ai/elevenlabs
 - Provider comparison: https://runapi.ai/providers/elevenlabs
 - Full catalog: https://runapi.ai/models
@@ -134,7 +137,7 @@ RunAPI-generated file URLs are temporary. Download and store generated images, v
 
 ### Which package should I install for ElevenLabs work?
 
-Install the model package for your language: `@runapi.ai/elevenlabs` on npm, `runapi-elevenlabs` on PyPI, `runapi-elevenlabs` on RubyGems, `github.com/runapi-ai/elevenlabs-sdk/go`, or `ai.runapi:runapi-elevenlabs`. Install core SDK packages only when you are building shared SDK infrastructure.
+Install the model package for your language: `@runapi.ai/elevenlabs` on npm, `runapi-elevenlabs` on PyPI, `runapi-elevenlabs` on RubyGems, `github.com/runapi-ai/elevenlabs-sdk/go`, `ai.runapi:runapi-elevenlabs` on Maven Central, or `runapi-ai/elevenlabs` on Packagist. Install core SDK packages only when you are building shared SDK infrastructure.
 
 ### Where should public links point?
 

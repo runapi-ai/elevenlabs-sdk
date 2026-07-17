@@ -5,26 +5,25 @@ build-backend = "hatchling.build"
 [project]
 name = "runapi-elevenlabs"
 version = "0.1.0"
-description = "ElevenLabs speech, dialogue, sound, and audio client for RunAPI"
+description = "RunAPI ElevenLabs SDK for text-to-speech, dialogue generation, sound effects, speech transcription, and audio isolation workflows in JavaScript, Python, Ruby, Go, Java, and PHP"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "Apache-2.0"
 authors = [{ name = "RunAPI", email = "contact@runapi.ai" }]
-keywords = ["runapi", "elevenlabs", "text-to-speech", "speech-to-text", "audio", "ai", "sdk"]
-dependencies = ["runapi-core"]
+keywords = ["runapi", "runapi-ai", "elevenlabs", "api", "sdk", "typescript", "python", "ruby", "golang", "java", "maven", "gradle", "audio-generation", "speech-to-text", "text-to-speech", "elevenlabs-api"]
+dependencies = ["runapi-core>=0.1.4"]
 
 [project.urls]
 Homepage = "https://runapi.ai/models/elevenlabs"
 Documentation = "https://runapi.ai/docs#sdk-elevenlabs"
+Source = "https://github.com/runapi-ai/elevenlabs-sdk"
+Issues = "https://github.com/runapi-ai/elevenlabs-sdk/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/runapi"]
 
 [tool.uv]
 package = true
-
-[tool.uv.sources]
-runapi-core = { workspace = true }
 
 [dependency-groups]
 dev = ["pytest>=8"]

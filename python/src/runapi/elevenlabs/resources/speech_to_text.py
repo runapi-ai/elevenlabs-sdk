@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, Optional
 
-from runapi.core import Resource, ValidationError
+from runapi.core import Resource, ValidationError, RequestOptions
 
 from ..types import CompletedSpeechToTextResponse, SpeechToTextResponse
 
@@ -17,7 +17,7 @@ class SpeechToText(Resource):
     RESPONSE_CLASS = SpeechToTextResponse
     COMPLETED_RESPONSE_CLASS = CompletedSpeechToTextResponse
 
-    def run(self, **params: Any) -> Any:
+    def run(self, options: Optional[RequestOptions] = None, **params: Any) -> Any:
         """Create a speech-to-text task and poll until it completes.
 
         Args:
@@ -26,10 +26,10 @@ class SpeechToText(Resource):
         Returns:
             The completed speech-to-text response.
         """
-        task = self.create(**params)
-        return self._poll_until_complete(lambda: self.get(task.id))
+        task = self.create(options=options, **params)
+        return self._poll_until_complete(lambda: self.get(task.id, options=options))
 
-    def create(self, **params: Any) -> Any:
+    def create(self, options: Optional[RequestOptions] = None, **params: Any) -> Any:
         """Create a speech-to-text task and return immediately with an id.
 
         Args:
@@ -41,9 +41,9 @@ class SpeechToText(Resource):
         compacted = self._compact_params(params)
         if compacted.get("source_audio_url") is None:
             raise ValidationError("source_audio_url is required")
-        return self._request("post", self.ENDPOINT, body=compacted)
+        return self._request("post", self.ENDPOINT, body=compacted, options=options)
 
-    def get(self, id: str) -> Any:
+    def get(self, id: str, options: Optional[RequestOptions] = None) -> Any:
         """Fetch the current status of a speech-to-text task.
 
         Args:
@@ -52,4 +52,4 @@ class SpeechToText(Resource):
         Returns:
             The current speech-to-text status.
         """
-        return self._request("get", f"{self.ENDPOINT}/{id}")
+        return self._request("get", f"{self.ENDPOINT}/{id}", options=options)

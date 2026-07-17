@@ -1,8 +1,8 @@
-# Elevenlabs API Python SDK for RunAPI
+# ElevenLabs Python SDK for RunAPI
 
-The elevenlabs api Python SDK is the language-specific package for ElevenLabs on RunAPI. Use this elevenlabs api package for voice, dialogue, transcription, sound effect, and cleanup flows when your application needs JSON request bodies, task status lookup, and consistent RunAPI errors in Python.
+The ElevenLabs Python SDK is the language-specific package for ElevenLabs on RunAPI. Use this package for voice, dialogue, transcription, sound effect, and audio cleanup workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Python.
 
-This elevenlabs api README is the Python package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs#elevenlabs; for SDK docs, use https://runapi.ai/docs#sdk-elevenlabs.
+This README is the Python package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs#elevenlabs; for SDK docs, use https://runapi.ai/docs#sdk-elevenlabs.
 
 ## Install
 
@@ -24,7 +24,7 @@ task = client.text_to_speech.create(
 status = client.text_to_speech.get(task.id)
 
 transcription = client.speech_to_text.create(
-    source_audio_url="https://example.com/clip.mp3",
+    source_audio_url="https://cdn.runapi.ai/public/samples/voice.mp3",
 )
 ```
 

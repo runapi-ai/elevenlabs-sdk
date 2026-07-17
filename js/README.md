@@ -1,8 +1,8 @@
-# Elevenlabs API JavaScript SDK for RunAPI
+# ElevenLabs JavaScript SDK for RunAPI
 
-The elevenlabs api JavaScript SDK is the language-specific package for ElevenLabs on RunAPI. Use this elevenlabs api package for voice, dialogue, transcription, sound effect, and cleanup flows when your application needs JSON request bodies, task status lookup, and consistent RunAPI errors in JavaScript.
+The ElevenLabs JavaScript SDK is the language-specific package for ElevenLabs on RunAPI. Use this package for voice, dialogue, transcription, sound effect, and audio cleanup workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in JavaScript.
 
-This elevenlabs api README is the JavaScript package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs#elevenlabs; for SDK docs, use https://runapi.ai/docs#sdk-elevenlabs.
+This README is the JavaScript package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs#elevenlabs; for SDK docs, use https://runapi.ai/docs#sdk-elevenlabs.
 
 ## Install
 
@@ -13,13 +13,13 @@ npm install @runapi.ai/elevenlabs
 ## Quick start
 
 ```typescript
-import { ElevenLabsClient } from '@runapi.ai/elevenlabs';
+import { ElevenlabsClient } from '@runapi.ai/elevenlabs';
 
-const client = new ElevenLabsClient();
-const task = await client.speeches.create({
+const client = new ElevenlabsClient();
+const task = await client.textToSpeech.create({
   // Pass the ElevenLabs JSON request body from https://runapi.ai/docs#elevenlabs.
 });
-const status = await client.speeches.get(task.id);
+const status = await client.textToSpeech.get(task.id);
 ```
 
 Use `create` when you want to submit a task and return quickly, `get` when you need the latest task state, and `run` when a script should create and poll until completion. In web request handlers, prefer `create` plus webhook or later `get` polling so a worker is not held open.
@@ -28,7 +28,7 @@ RunAPI-generated file URLs are temporary. Download and store generated images, v
 
 ## Language notes
 
-Use the TypeScript types in `src/types.ts` and the resource classes under `src/resources` when building audio applications. The available resources include speeches, dialogues, sound effects, transcriptions, and audio isolations. Keep `RUNAPI_API_KEY` in the environment or your secret manager; never commit API keys or callback secrets.
+Use the TypeScript types in `src/types.ts` and the resource classes under `src/resources` when building audio applications. The available resources are `textToSpeech`, `textToDialogue`, `textToSound`, `speechToText`, and `isolateAudio`. Keep `RUNAPI_API_KEY` in the environment or your secret manager; never commit API keys or callback secrets.
 
 ## Links
 
