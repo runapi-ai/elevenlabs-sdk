@@ -84,11 +84,17 @@ export const contract = {
     ],
     "fields_by_model": {
       "text-to-speech-multilingual-v2": {
+        "model": {
+          "required": true
+        },
         "text": {
           "required": true
         }
       },
       "text-to-speech-turbo-v2.5": {
+        "model": {
+          "required": true
+        },
         "text": {
           "required": true
         }

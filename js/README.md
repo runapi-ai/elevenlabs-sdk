@@ -2,7 +2,7 @@
 
 The ElevenLabs JavaScript SDK is the language-specific package for ElevenLabs on RunAPI. Use this package for voice, dialogue, transcription, sound effect, and audio cleanup workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in JavaScript.
 
-This README is the JavaScript package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs/api/elevenlabs/text-to-speech; for SDK docs, use https://runapi.ai/docs/resources/sdks.
+This README is the JavaScript package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs#elevenlabs; for SDK docs, use https://runapi.ai/docs#sdk-elevenlabs.
 
 ## Install
 
@@ -17,7 +17,7 @@ import { ElevenlabsClient } from '@runapi.ai/elevenlabs';
 
 const client = new ElevenlabsClient();
 const task = await client.textToSpeech.create({
-  // Pass the ElevenLabs JSON request body from https://runapi.ai/docs/api/elevenlabs/text-to-speech.
+  // Pass the ElevenLabs JSON request body from https://runapi.ai/docs#elevenlabs.
 });
 const status = await client.textToSpeech.get(task.id);
 ```
@@ -33,8 +33,8 @@ Use the TypeScript types in `src/types.ts` and the resource classes under `src/r
 ## Links
 
 - Model page: https://runapi.ai/models/elevenlabs
-- SDK docs: https://runapi.ai/docs/resources/sdks
-- Product docs: https://runapi.ai/docs/api/elevenlabs/text-to-speech
+- SDK docs: https://runapi.ai/docs#sdk-elevenlabs
+- Product docs: https://runapi.ai/docs#elevenlabs
 - Pricing and rate limits: https://runapi.ai/models/elevenlabs/text-to-speech-turbo-v2.5
 - Provider comparison: https://runapi.ai/providers/elevenlabs
 - Full catalog: https://runapi.ai/models

@@ -3,7 +3,7 @@
   "runapi": {
     "slug": "elevenlabs"
   },
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "RunAPI ElevenLabs SDK for text-to-speech, dialogue generation, sound effects, speech transcription, and audio isolation workflows in JavaScript, Python, Ruby, Go, Java, and PHP",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
