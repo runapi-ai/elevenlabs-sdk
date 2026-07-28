@@ -1,4 +1,4 @@
-import type { AsyncTaskStatus } from '@runapi.ai/core';
+import type { AsyncTaskStatus, TaskBillingResponse, TaskResponse } from '@runapi.ai/core';
 
 /**
  * Speech synthesis model.
@@ -36,7 +36,7 @@ export type ElevenlabsSoundEffectOutputFormat =
   | 'opus_48000_192';
 
 /** Acknowledgement returned by `create()` before the task starts processing. */
-export interface TaskCreateResponse {
+export interface TaskCreateResponse extends TaskBillingResponse {
   id: string;
   status?: AsyncTaskStatus;
 }
@@ -47,7 +47,7 @@ export interface AudioFile {
 }
 
 /** Result of speech, dialogue, sound effect, or vocal isolation tasks. */
-export interface AudioTaskResponse {
+export interface AudioTaskResponse extends TaskResponse {
   id: string;
   status: AsyncTaskStatus;
   /** Generated audio files; populated once the task completes. */
@@ -146,7 +146,7 @@ export interface SpeechToTextParams {
 }
 
 /** Transcription result; `text` is populated once the task completes. */
-export interface SpeechToTextResponse {
+export interface SpeechToTextResponse extends TaskResponse {
   id: string;
   status: AsyncTaskStatus;
   text?: string;

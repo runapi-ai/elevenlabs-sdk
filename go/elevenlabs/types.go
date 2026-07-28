@@ -1,6 +1,8 @@
 // Package elevenlabs provides the ElevenLabs audio API client.
 package elevenlabs
 
+import "github.com/runapi-ai/core-sdk/go/core"
+
 // SpeechModel selects the speech synthesis engine. See [ModelTTSTurbo] and [ModelTTSMultilingual].
 type SpeechModel string
 
@@ -22,6 +24,7 @@ const (
 
 // AsyncTaskResponse carries the task ID, lifecycle status, and error for all ElevenLabs async operations.
 type AsyncTaskResponse struct {
+	core.TaskBillingFacts
 	ID     string     `json:"id"`
 	Status TaskStatus `json:"status"`
 	Error  string     `json:"error,omitempty"`
