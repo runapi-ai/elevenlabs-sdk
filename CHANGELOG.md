@@ -1,5 +1,11 @@
 # Changelog
 
+## [js/v0.2.10](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/js%2Fv0.2.10), [ruby/v0.2.9](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/ruby%2Fv0.2.9), [go/v0.2.10](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/go%2Fv0.2.10), [python/v0.2.1](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/python%2Fv0.2.1) - 2026-07-28
+
+### Fixed
+- Validate the required model before sending text-to-speech requests.
+
+
 ## [go/v0.2.9](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/go%2Fv0.2.9) - 2026-07-28
 
 ### Added

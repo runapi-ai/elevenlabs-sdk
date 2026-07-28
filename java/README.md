@@ -4,7 +4,7 @@
 
 The ElevenLabs Java SDK is the language-specific package for ElevenLabs on RunAPI. Use it when your Java application needs typed builders, strict request validation, task status lookup, local polling helpers, file uploads, account helpers, and consistent RunAPI errors for ElevenLabs workflows.
 
-This README is the Java package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs/api/elevenlabs/text-to-speech; for SDK docs, use https://runapi.ai/docs/resources/sdks.
+This README is the Java package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs#elevenlabs; for SDK docs, use https://runapi.ai/docs#sdk-elevenlabs.
 
 ## Requirements
 
@@ -34,7 +34,7 @@ Use the BOM when multiple RunAPI Java modules are installed:
 
 ```kotlin
 dependencies {
-  implementation(platform("ai.runapi:runapi-bom:0.2.7"))
+  implementation(platform("ai.runapi:runapi-bom:0.2.8"))
   implementation("ai.runapi:runapi-elevenlabs")
 }
 ```
@@ -47,7 +47,7 @@ Maven BOM:
     <dependency>
       <groupId>ai.runapi</groupId>
       <artifactId>runapi-bom</artifactId>
-      <version>0.2.7</version>
+      <version>0.2.8</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>
@@ -173,8 +173,8 @@ try {
 ## Links
 
 - Model page: https://runapi.ai/models/elevenlabs
-- SDK docs: https://runapi.ai/docs/resources/sdks
-- Product docs: https://runapi.ai/docs/api/elevenlabs/text-to-speech
+- SDK docs: https://runapi.ai/docs#sdk-elevenlabs
+- Product docs: https://runapi.ai/docs#elevenlabs
 - Pricing and rate limits: https://runapi.ai/models/elevenlabs/text-to-speech-turbo-v2.5
 - Full catalog: https://runapi.ai/models
 - Repository: https://github.com/runapi-ai/elevenlabs-sdk

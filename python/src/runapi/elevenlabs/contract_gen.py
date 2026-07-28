@@ -49,11 +49,17 @@ CONTRACT = {
         "models": ["text-to-speech-multilingual-v2", "text-to-speech-turbo-v2.5"],
         "fields_by_model": {
             "text-to-speech-multilingual-v2": {
+                "model": {
+                    "required": True
+                },
                 "text": {
                     "required": True
                 }
             },
             "text-to-speech-turbo-v2.5": {
+                "model": {
+                    "required": True
+                },
                 "text": {
                     "required": True
                 }
