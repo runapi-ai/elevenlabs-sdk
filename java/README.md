@@ -4,7 +4,7 @@
 
 The ElevenLabs Java SDK is the language-specific package for ElevenLabs on RunAPI. Use it when your Java application needs typed builders, strict request validation, task status lookup, local polling helpers, file uploads, account helpers, and consistent RunAPI errors for ElevenLabs workflows.
 
-This README is the Java package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs#elevenlabs; for SDK docs, use https://runapi.ai/docs#sdk-elevenlabs.
+This README is the Java package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs/api/elevenlabs/text-to-speech; for SDK docs, use https://runapi.ai/docs/resources/sdks.
 
 ## Requirements
 
@@ -173,8 +173,8 @@ try {
 ## Links
 
 - Model page: https://runapi.ai/models/elevenlabs
-- SDK docs: https://runapi.ai/docs#sdk-elevenlabs
-- Product docs: https://runapi.ai/docs#elevenlabs
+- SDK docs: https://runapi.ai/docs/resources/sdks
+- Product docs: https://runapi.ai/docs/api/elevenlabs/text-to-speech
 - Pricing and rate limits: https://runapi.ai/models/elevenlabs/text-to-speech-turbo-v2.5
 - Full catalog: https://runapi.ai/models
 - Repository: https://github.com/runapi-ai/elevenlabs-sdk

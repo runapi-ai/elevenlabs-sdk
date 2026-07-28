@@ -2,7 +2,7 @@
 
 The ElevenLabs Ruby SDK is the language-specific package for ElevenLabs on RunAPI. Use this package for voice, dialogue, transcription, sound effect, and audio cleanup workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Ruby.
 
-This README is the Ruby package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs#elevenlabs; for SDK docs, use https://runapi.ai/docs#sdk-elevenlabs.
+This README is the Ruby package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs/api/elevenlabs/text-to-speech; for SDK docs, use https://runapi.ai/docs/resources/sdks.
 
 ## Install
 
@@ -17,7 +17,7 @@ require "runapi/elevenlabs"
 
 client = RunApi::Elevenlabs::Client.new
 task = client.text_to_speech.create(
-  # Pass the ElevenLabs JSON request body from https://runapi.ai/docs#elevenlabs.
+  # Pass the ElevenLabs JSON request body from https://runapi.ai/docs/api/elevenlabs/text-to-speech.
 )
 status = client.text_to_speech.get(task.id)
 ```
@@ -33,8 +33,8 @@ Use Ruby keyword arguments and the `RunApi::Elevenlabs` error classes when build
 ## Links
 
 - Model page: https://runapi.ai/models/elevenlabs
-- SDK docs: https://runapi.ai/docs#sdk-elevenlabs
-- Product docs: https://runapi.ai/docs#elevenlabs
+- SDK docs: https://runapi.ai/docs/resources/sdks
+- Product docs: https://runapi.ai/docs/api/elevenlabs/text-to-speech
 - Pricing and rate limits: https://runapi.ai/models/elevenlabs/text-to-speech-turbo-v2.5
 - Provider comparison: https://runapi.ai/providers/elevenlabs
 - Full catalog: https://runapi.ai/models
