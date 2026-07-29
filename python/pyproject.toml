@@ -15,7 +15,7 @@ dependencies = ["runapi-core>=0.3.2"]
 
 [project.urls]
 Homepage = "https://runapi.ai/models/elevenlabs"
-Documentation = "https://runapi.ai/docs#sdk-elevenlabs"
+Documentation = "https://runapi.ai/docs/resources/sdks"
 Source = "https://github.com/runapi-ai/elevenlabs-sdk"
 Issues = "https://github.com/runapi-ai/elevenlabs-sdk/issues"
 Changelog = "https://github.com/runapi-ai/elevenlabs-sdk/blob/main/CHANGELOG.md"
