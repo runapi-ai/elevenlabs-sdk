@@ -61,8 +61,8 @@ const audioUrl = result.audios[0].url;
 ## Routing
 
 - Model page: https://runapi.ai/models/elevenlabs
-- Product docs: https://runapi.ai/docs#elevenlabs
-- SDK docs: https://runapi.ai/docs#sdk-elevenlabs
+- Product docs: https://runapi.ai/docs/api/elevenlabs/text-to-speech
+- SDK docs: https://runapi.ai/docs/resources/sdks
 - SDK repository: https://github.com/runapi-ai/elevenlabs-sdk
 - Pricing and rate limits: https://runapi.ai/models/elevenlabs/text-to-speech-turbo-v2.5
 - Provider comparison: https://runapi.ai/providers/elevenlabs
