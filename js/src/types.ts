@@ -1,4 +1,4 @@
-import type { AsyncTaskStatus, TaskBillingResponse, TaskResponse } from '@runapi.ai/core';
+import type { AsyncTaskStatus, TaskResponse } from '@runapi.ai/core';
 
 /**
  * Speech synthesis model.
@@ -36,7 +36,7 @@ export type ElevenlabsSoundEffectOutputFormat =
   | 'opus_48000_192';
 
 /** Acknowledgement returned by `create()` before the task starts processing. */
-export interface TaskCreateResponse extends TaskBillingResponse {
+export interface TaskCreateResponse {
   id: string;
   status?: AsyncTaskStatus;
 }

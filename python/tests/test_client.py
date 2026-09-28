@@ -89,8 +89,7 @@ def test_text_to_speech_create_posts_compacted_body():
         model="text-to-speech-turbo-v2.5", text="hello", voice=None
     )
     assert fake.calls == [
-        ("post", "/api/v1/elevenlabs/text_to_speech", {"model": "text-to-speech-turbo-v2.5", "text": "hello"}),
-    ]
+        ("post", "/api/v1/elevenlabs/text_to_speech", {"model": "text-to-speech-turbo-v2.5", "text": "hello"})]
     assert isinstance(result, AudioTaskResponse)
 
 
@@ -106,8 +105,7 @@ def test_text_to_dialogue_create_shape():
     client = ElevenlabsClient(api_key="k", http_client=fake)
     client.text_to_dialogue.create(dialogue=[{"text": "Hi", "voice": "Rachel"}])
     assert fake.calls == [
-        ("post", "/api/v1/elevenlabs/text_to_dialogue", {"dialogue": [{"text": "Hi", "voice": "Rachel"}]}),
-    ]
+        ("post", "/api/v1/elevenlabs/text_to_dialogue", {"dialogue": [{"text": "Hi", "voice": "Rachel"}]})]
 
 
 def test_text_to_sound_create_shape():
@@ -115,8 +113,7 @@ def test_text_to_sound_create_shape():
     client = ElevenlabsClient(api_key="k", http_client=fake)
     client.text_to_sound.create(text="rain on a tin roof", output_format="mp3_44100_128")
     assert fake.calls == [
-        ("post", "/api/v1/elevenlabs/text_to_sound", {"text": "rain on a tin roof", "output_format": "mp3_44100_128"}),
-    ]
+        ("post", "/api/v1/elevenlabs/text_to_sound", {"text": "rain on a tin roof", "output_format": "mp3_44100_128"})]
 
 
 def test_speech_to_text_create_shape():
@@ -124,8 +121,7 @@ def test_speech_to_text_create_shape():
     client = ElevenlabsClient(api_key="k", http_client=fake)
     result = client.speech_to_text.create(source_audio_url="https://x/a.mp3")
     assert fake.calls == [
-        ("post", "/api/v1/elevenlabs/speech_to_text", {"source_audio_url": "https://x/a.mp3"}),
-    ]
+        ("post", "/api/v1/elevenlabs/speech_to_text", {"source_audio_url": "https://x/a.mp3"})]
     assert isinstance(result, SpeechToTextResponse)
 
 
@@ -134,8 +130,7 @@ def test_isolate_audio_create_shape():
     client = ElevenlabsClient(api_key="k", http_client=fake)
     client.isolate_audio.create(source_audio_url="https://x/a.mp3")
     assert fake.calls == [
-        ("post", "/api/v1/elevenlabs/isolate_audio", {"source_audio_url": "https://x/a.mp3"}),
-    ]
+        ("post", "/api/v1/elevenlabs/isolate_audio", {"source_audio_url": "https://x/a.mp3"})]
 
 
 # --- run() narrowing ------------------------------------------------------
@@ -144,7 +139,7 @@ def test_isolate_audio_create_shape():
 def test_text_to_speech_run_narrows_completed_type():
     fake = FakeHttp(
         {"id": "t1", "status": "pending"},
-        {"id": "t1", "status": "completed", "audios": [{"url": "https://x/y.mp3"}]},
+        {"id": "t1", "status": "completed", "usage": {"cost": 0.05}, "audios": [{"url": "https://x/y.mp3"}]},
     )
     client = ElevenlabsClient(api_key="k", http_client=fake)
     result = client.text_to_speech.run(model="text-to-speech-turbo-v2.5", text="hi there")
@@ -155,7 +150,7 @@ def test_text_to_speech_run_narrows_completed_type():
 def test_speech_to_text_run_narrows_completed_type():
     fake = FakeHttp(
         {"id": "t1", "status": "pending"},
-        {"id": "t1", "status": "completed", "text": "transcribed words"},
+        {"id": "t1", "status": "completed", "usage": {"cost": 0.05}, "text": "transcribed words"},
     )
     client = ElevenlabsClient(api_key="k", http_client=fake)
     result = client.speech_to_text.run(source_audio_url="https://x/a.mp3")
