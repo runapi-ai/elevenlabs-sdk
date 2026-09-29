@@ -278,6 +278,7 @@ class ElevenLabsClientTest {
       assertNotNull(createClient.textToSound().create(
               TextToSoundParams.builder()
                   .text("sample")
+                  .durationSeconds(5.0)
                   .build()
       ));
 
@@ -286,6 +287,7 @@ class ElevenLabsClientTest {
       assertNotNull(createWithOptionsClient.textToSound().create(
               TextToSoundParams.builder()
                   .text("sample")
+                  .durationSeconds(5.0)
                   .build(),
           RequestOptions.none()));
 
@@ -304,6 +306,7 @@ class ElevenLabsClientTest {
       CompletedTextToSoundResponse runResponse = runClient.textToSound().run(
               TextToSoundParams.builder()
                   .text("sample")
+                  .durationSeconds(5.0)
                   .build(),
           RequestOptions.builder().pollingInterval(Duration.ofMillis(1)).pollingMaxWait(Duration.ofSeconds(1)).build());
       assertNotNull(runResponse);
@@ -315,6 +318,7 @@ class ElevenLabsClientTest {
       assertNotNull(runWithOptionsClient.textToSound().run(
               TextToSoundParams.builder()
                   .text("sample")
+                  .durationSeconds(5.0)
                   .build(),
           RequestOptions.builder().pollingInterval(Duration.ofMillis(1)).pollingMaxWait(Duration.ofSeconds(1)).build()));
     }

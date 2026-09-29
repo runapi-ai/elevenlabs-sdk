@@ -122,7 +122,7 @@ export interface TextToSoundParams {
   /** Generate a seamlessly loopable audio clip. */
   loop?: boolean;
   /** Target duration in seconds; 0.5--22. */
-  duration_seconds?: number;
+  duration_seconds: number;
   /** How closely the output follows the prompt; 0--1. */
   prompt_influence?: number;
   output_format?: ElevenlabsSoundEffectOutputFormat;

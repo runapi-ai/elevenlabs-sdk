@@ -1,5 +1,12 @@
 # Changelog
 
+## [js/v0.3.0](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/js%2Fv0.3.0), [ruby/v0.3.0](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/ruby%2Fv0.3.0), [go/v0.3.0](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/go%2Fv0.3.0), [python/v0.3.0](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/python%2Fv0.3.0) - 2026-09-29
+
+### Changed
+- Require duration_seconds on sound-effect-v2 text_to_sound, matching the API, which rejects requests that omit it.
+  Migration: Pass duration_seconds (0.5 to 22 seconds) explicitly on sound effect requests.
+
+
 ## [js/v0.2.11](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/js%2Fv0.2.11), [go/v0.2.11](https://github.com/runapi-ai/elevenlabs-sdk/releases/tag/go%2Fv0.2.11) - 2026-09-28
 
 ### Added

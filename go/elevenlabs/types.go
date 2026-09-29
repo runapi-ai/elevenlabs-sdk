@@ -84,7 +84,7 @@ type TextToSoundParams struct {
 	Text            string                  `json:"text" help:"required; max 5000 chars"`
 	CallbackURL     string                  `json:"callback_url,omitempty" help:"optional; HTTPS callback URL"`
 	Loop            *bool                   `json:"loop,omitempty" help:"optional; loop the generated sound"`
-	DurationSeconds *float64                `json:"duration_seconds,omitempty" help:"optional; 0.5-22"`
+	DurationSeconds *float64                `json:"duration_seconds,omitempty" help:"required; 0.5-22"`
 	PromptInfluence *float64                `json:"prompt_influence,omitempty" help:"optional; 0-1"`
 	OutputFormat    SoundEffectOutputFormat `json:"output_format,omitempty" help:"optional; output format"`
 }

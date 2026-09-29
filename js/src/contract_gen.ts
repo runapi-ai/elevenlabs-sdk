@@ -48,6 +48,9 @@ export const contract = {
     ],
     "fields_by_model": {
       "sound-effect-v2": {
+        "duration_seconds": {
+          "required": true
+        },
         "output_format": {
           "enum": [
             "mp3_22050_32",
