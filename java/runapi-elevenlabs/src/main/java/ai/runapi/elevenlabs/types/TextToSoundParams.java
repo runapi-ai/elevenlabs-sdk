@@ -15,7 +15,7 @@ public final class TextToSoundParams {
   private final String model;
 
   private TextToSoundParams(Builder builder) {
-    this.text = ElevenlabsParamUtils.requireNonBlank(builder.text, "text");
+    this.text = builder.text;
     this.callbackUrl = builder.callbackUrl;
     this.loop = builder.loop;
     this.durationSeconds = builder.durationSeconds;
@@ -63,13 +63,13 @@ public final class TextToSoundParams {
 
     /** Sets the line text. */
     public Builder text(String value) {
-      this.text = ElevenlabsParamUtils.requireNonBlank(value, "text");
+      this.text = value;
       return this;
     }
 
     /** Sets the webhook URL for task completion notifications. */
     public Builder callbackUrl(String value) {
-      this.callbackUrl = ElevenlabsParamUtils.requireNonBlank(value, "callbackUrl");
+      this.callbackUrl = value;
       return this;
     }
 
@@ -93,7 +93,7 @@ public final class TextToSoundParams {
 
     /** Sets the output format. */
     public Builder outputFormat(String value) {
-      this.outputFormat = ElevenlabsParamUtils.requireNonBlank(value, "outputFormat");
+      this.outputFormat = value;
       return this;
     }
 
@@ -105,7 +105,7 @@ public final class TextToSoundParams {
 
     /** Sets the model slug using a string value. */
     public Builder model(String value) {
-      this.model = ElevenlabsParamUtils.requireNonBlankTrim(value, "model");
+      this.model = value;
       return this;
     }
 

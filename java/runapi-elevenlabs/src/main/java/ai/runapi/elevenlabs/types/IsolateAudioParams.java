@@ -11,7 +11,7 @@ public final class IsolateAudioParams {
   private final String model;
 
   private IsolateAudioParams(Builder builder) {
-    this.sourceAudioUrl = ElevenlabsParamUtils.requireNonBlank(builder.sourceAudioUrl, "sourceAudioUrl");
+    this.sourceAudioUrl = builder.sourceAudioUrl;
     this.callbackUrl = builder.callbackUrl;
     this.model = builder.model;
   }
@@ -47,13 +47,13 @@ public final class IsolateAudioParams {
 
     /** Sets the source audio URL. */
     public Builder sourceAudioUrl(String value) {
-      this.sourceAudioUrl = ElevenlabsParamUtils.requireNonBlank(value, "sourceAudioUrl");
+      this.sourceAudioUrl = value;
       return this;
     }
 
     /** Sets the webhook URL for task completion notifications. */
     public Builder callbackUrl(String value) {
-      this.callbackUrl = ElevenlabsParamUtils.requireNonBlank(value, "callbackUrl");
+      this.callbackUrl = value;
       return this;
     }
 
@@ -65,7 +65,7 @@ public final class IsolateAudioParams {
 
     /** Sets the model slug using a string value. */
     public Builder model(String value) {
-      this.model = ElevenlabsParamUtils.requireNonBlankTrim(value, "model");
+      this.model = value;
       return this;
     }
 

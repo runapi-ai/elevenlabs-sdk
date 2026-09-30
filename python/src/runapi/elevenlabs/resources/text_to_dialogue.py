@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any, Optional
 
-from runapi.core import Resource, ValidationError, RequestOptions
+from runapi.core import Resource, RequestOptions
 
 from ..types import AudioTaskResponse, CompletedAudioTaskResponse
 
@@ -39,8 +39,6 @@ class TextToDialogue(Resource):
             The task creation result with an id.
         """
         compacted = self._compact_params(params)
-        if compacted.get("dialogue") is None:
-            raise ValidationError("dialogue is required")
         return self._request("post", self.ENDPOINT, body=compacted, options=options)
 
     def get(self, id: str, options: Optional[RequestOptions] = None) -> Any:

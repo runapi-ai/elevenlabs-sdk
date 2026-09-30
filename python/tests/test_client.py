@@ -1,7 +1,7 @@
 import pytest
 
 from runapi.core import config
-from runapi.core.errors import AuthenticationError, ValidationError
+from runapi.core.errors import AuthenticationError
 from runapi.elevenlabs import ElevenlabsClient
 from runapi.elevenlabs.resources.isolate_audio import IsolateAudio
 from runapi.elevenlabs.resources.speech_to_text import SpeechToText
@@ -156,66 +156,3 @@ def test_speech_to_text_run_narrows_completed_type():
     result = client.speech_to_text.run(source_audio_url="https://x/a.mp3")
     assert isinstance(result, CompletedSpeechToTextResponse)
     assert result.text == "transcribed words"
-
-
-# --- validation -----------------------------------------------------------
-
-
-def test_text_to_speech_requires_model():
-    client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(
-        ValidationError,
-        match="model must be one of: text-to-speech-multilingual-v2, text-to-speech-turbo-v2.5",
-    ):
-        client.text_to_speech.create(text="hi")
-
-
-def test_text_to_speech_rejects_unknown_model():
-    client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(
-        ValidationError,
-        match="model must be one of: text-to-speech-multilingual-v2, text-to-speech-turbo-v2.5",
-    ):
-        client.text_to_speech.create(model="nope", text="hi")
-
-
-def test_text_to_speech_requires_text():
-    client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="text is required"):
-        client.text_to_speech.create(model="text-to-speech-turbo-v2.5")
-
-
-def test_text_to_speech_multilingual_requires_voice():
-    client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="voice is required when model is text-to-speech-multilingual-v2"):
-        client.text_to_speech.create(model="text-to-speech-multilingual-v2", text="hi")
-
-
-def test_text_to_dialogue_requires_dialogue():
-    client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="dialogue is required"):
-        client.text_to_dialogue.create()
-
-
-def test_text_to_sound_requires_text():
-    client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="text is required"):
-        client.text_to_sound.create()
-
-
-def test_text_to_sound_rejects_invalid_output_format():
-    client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="Invalid output_format"):
-        client.text_to_sound.create(text="rain", output_format="flac_99")
-
-
-def test_speech_to_text_requires_source_audio_url():
-    client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="source_audio_url is required"):
-        client.speech_to_text.create()
-
-
-def test_isolate_audio_requires_source_audio_url():
-    client = ElevenlabsClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="source_audio_url is required"):
-        client.isolate_audio.create()

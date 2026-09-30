@@ -10,8 +10,8 @@ public final class DialogueLine {
   private final String voice;
 
   private DialogueLine(Builder builder) {
-    this.text = ElevenlabsParamUtils.requireNonBlank(builder.text, "text");
-    this.voice = ElevenlabsParamUtils.requireNonBlank(builder.voice, "voice");
+    this.text = builder.text;
+    this.voice = builder.voice;
   }
 
   /** Creates a new DialogueLine builder. */
@@ -45,13 +45,13 @@ public final class DialogueLine {
 
     /** Sets the line text. */
     public Builder text(String value) {
-      this.text = ElevenlabsParamUtils.requireNonBlank(value, "text");
+      this.text = value;
       return this;
     }
 
     /** Sets the voice identifier. */
     public Builder voice(String value) {
-      this.voice = ElevenlabsParamUtils.requireNonBlank(value, "voice");
+      this.voice = value;
       return this;
     }
 

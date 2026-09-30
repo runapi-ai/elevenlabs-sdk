@@ -21,7 +21,6 @@ module RunApi
 
         def create(options: nil, **params)
           params = compact_params(params)
-          raise Core::ValidationError, "dialogue is required" unless param(params, :dialogue)
           request(:post, ENDPOINT, body: params, options: options)
         end
 

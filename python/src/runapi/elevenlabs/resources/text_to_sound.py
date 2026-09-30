@@ -4,10 +4,9 @@ from __future__ import annotations
 
 from typing import Any, Optional
 
-from runapi.core import Resource, ValidationError, RequestOptions
+from runapi.core import Resource, RequestOptions
 
 from ..types import (
-    TEXT_TO_SOUND_OUTPUT_FORMATS,
     AudioTaskResponse,
     CompletedAudioTaskResponse,
 )
@@ -43,11 +42,6 @@ class TextToSound(Resource):
             The task creation result with an id.
         """
         compacted = self._compact_params(params)
-        if compacted.get("text") is None:
-            raise ValidationError("text is required")
-        output_format = compacted.get("output_format")
-        if output_format is not None and output_format not in TEXT_TO_SOUND_OUTPUT_FORMATS:
-            raise ValidationError("Invalid output_format")
         return self._request("post", self.ENDPOINT, body=compacted, options=options)
 
     def get(self, id: str, options: Optional[RequestOptions] = None) -> Any:

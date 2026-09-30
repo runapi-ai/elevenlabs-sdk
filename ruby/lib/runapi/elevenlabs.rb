@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "runapi/core"
-require_relative "elevenlabs/contract_gen"
 require_relative "elevenlabs/types"
 require_relative "elevenlabs/resources/text_to_speech"
 require_relative "elevenlabs/resources/text_to_dialogue"

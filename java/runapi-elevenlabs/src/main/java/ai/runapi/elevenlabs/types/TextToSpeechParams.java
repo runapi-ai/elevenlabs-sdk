@@ -21,7 +21,7 @@ public final class TextToSpeechParams {
 
   private TextToSpeechParams(Builder builder) {
     this.model = builder.model;
-    this.text = ElevenlabsParamUtils.requireNonBlank(builder.text, "text");
+    this.text = builder.text;
     this.voice = builder.voice;
     this.callbackUrl = builder.callbackUrl;
     this.stability = builder.stability;
@@ -89,26 +89,26 @@ public final class TextToSpeechParams {
 
     /** Sets the model slug using a string value. */
     public Builder model(String value) {
-      this.model = ElevenlabsParamUtils.requireNonBlankTrim(value, "model");
+      this.model = value;
       return this;
     }
 
 
     /** Sets the line text. */
     public Builder text(String value) {
-      this.text = ElevenlabsParamUtils.requireNonBlank(value, "text");
+      this.text = value;
       return this;
     }
 
     /** Sets the voice identifier. */
     public Builder voice(String value) {
-      this.voice = ElevenlabsParamUtils.requireNonBlank(value, "voice");
+      this.voice = value;
       return this;
     }
 
     /** Sets the webhook URL for task completion notifications. */
     public Builder callbackUrl(String value) {
-      this.callbackUrl = ElevenlabsParamUtils.requireNonBlank(value, "callbackUrl");
+      this.callbackUrl = value;
       return this;
     }
 
@@ -144,19 +144,19 @@ public final class TextToSpeechParams {
 
     /** Sets the previous text. */
     public Builder previousText(String value) {
-      this.previousText = ElevenlabsParamUtils.requireNonBlank(value, "previousText");
+      this.previousText = value;
       return this;
     }
 
     /** Sets the next text. */
     public Builder nextText(String value) {
-      this.nextText = ElevenlabsParamUtils.requireNonBlank(value, "nextText");
+      this.nextText = value;
       return this;
     }
 
     /** Sets the language code. */
     public Builder languageCode(String value) {
-      this.languageCode = ElevenlabsParamUtils.requireNonBlank(value, "languageCode");
+      this.languageCode = value;
       return this;
     }
 

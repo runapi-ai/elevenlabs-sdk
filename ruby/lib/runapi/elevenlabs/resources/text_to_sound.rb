@@ -21,10 +21,6 @@ module RunApi
 
         def create(options: nil, **params)
           params = compact_params(params)
-          raise Core::ValidationError, "text is required" unless param(params, :text)
-          if param(params, :output_format) && !Types::TEXT_TO_SOUND_OUTPUT_FORMATS.include?(param(params, :output_format))
-            raise Core::ValidationError, "Invalid output_format"
-          end
           request(:post, ENDPOINT, body: params, options: options)
         end
 

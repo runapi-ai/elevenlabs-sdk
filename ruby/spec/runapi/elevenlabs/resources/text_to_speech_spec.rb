@@ -27,10 +27,4 @@ RSpec.describe RunApi::Elevenlabs::Resources::TextToSpeech do
     result = resource.create(model: "text-to-speech-multilingual-v2", text: "Hello", voice: "voice_future_2026_05")
     expect(result.id).to eq("task-2")
   end
-
-  it "requires voice for multilingual speech" do
-    expect {
-      resource.create(model: "text-to-speech-multilingual-v2", text: "Hello")
-    }.to raise_error(RunApi::Core::ValidationError, /voice is required/)
-  end
 end

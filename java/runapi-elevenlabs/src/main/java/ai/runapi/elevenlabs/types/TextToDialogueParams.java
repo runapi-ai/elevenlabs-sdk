@@ -14,7 +14,7 @@ public final class TextToDialogueParams {
   private final String model;
 
   private TextToDialogueParams(Builder builder) {
-    this.dialogue = ElevenlabsParamUtils.requiredList(builder.dialogue, "dialogue");
+    this.dialogue = ElevenlabsParamUtils.list(builder.dialogue);
     this.callbackUrl = builder.callbackUrl;
     this.stability = builder.stability;
     this.languageCode = builder.languageCode;
@@ -48,7 +48,7 @@ public final class TextToDialogueParams {
     }
     List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
     for (DialogueLine item : values) {
-      result.add(item.toMap());
+      result.add(item == null ? null : item.toMap());
     }
     return java.util.Collections.unmodifiableList(result);
   }
@@ -71,7 +71,7 @@ public final class TextToDialogueParams {
 
     /** Sets the webhook URL for task completion notifications. */
     public Builder callbackUrl(String value) {
-      this.callbackUrl = ElevenlabsParamUtils.requireNonBlank(value, "callbackUrl");
+      this.callbackUrl = value;
       return this;
     }
 
@@ -83,7 +83,7 @@ public final class TextToDialogueParams {
 
     /** Sets the language code. */
     public Builder languageCode(String value) {
-      this.languageCode = ElevenlabsParamUtils.requireNonBlank(value, "languageCode");
+      this.languageCode = value;
       return this;
     }
 
@@ -95,7 +95,7 @@ public final class TextToDialogueParams {
 
     /** Sets the model slug using a string value. */
     public Builder model(String value) {
-      this.model = ElevenlabsParamUtils.requireNonBlankTrim(value, "model");
+      this.model = value;
       return this;
     }
 
