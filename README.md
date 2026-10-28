@@ -22,9 +22,17 @@
 </div>
 <br/>
 
-The ElevenLabs API SDK packages JavaScript, Python, Ruby, Go, Java, and PHP clients for ElevenLabs on RunAPI. Use it for text-to-speech, dialogue generation, sound effects, speech transcription, and audio isolation workflows when your app needs typed request builders, predictable task polling, file upload helpers, account helpers, and consistent RunAPI errors.
+The ElevenLabs API SDK packages JavaScript, Python, Ruby, Go, Java, and PHP clients for ElevenLabs on RunAPI. Use it for text-to-speech and dialogue generation workflows when your app needs typed request builders, predictable task polling, file upload helpers, account helpers, and consistent RunAPI errors.
 
-ElevenLabs is listed in the RunAPI model catalog at https://runapi.ai/models/elevenlabs. Variant pages below carry pricing, rate-limit, and commercial-usage details. The public `elevenlabs-sdk` repository groups the non-PHP language packages, examples, CI, and release tags for this model. The PHP package is released from a split Composer repository.
+ElevenLabs is listed in the RunAPI model catalog at https://runapi.ai/models/elevenlabs. Active variant pages below carry pricing, rate-limit, and commercial-usage details. The public `elevenlabs-sdk` repository groups the non-PHP language packages, examples, CI, and release tags for this model. The PHP package is released from a split Composer repository.
+
+## Retired sound effects and transcription
+
+`sound-effect-v2` and `speech-to-text` were retired on 2026-10-14. Valid new requests return HTTP 410 before task creation or balance deduction. Neither old ID maps to a replacement. Existing tasks remain queryable with `textToSound.get(id)` and `speechToText.get(id)`.
+
+## Audio Isolation retirement
+
+[Audio Isolation](https://runapi.ai/models/elevenlabs/audio-isolation) was retired on 2026-10-09. New `isolate_audio` requests return HTTP 410 before a task is created or any balance is deducted. The model name `audio-isolation` does not map to another model. Existing isolation task IDs remain queryable through the SDK task-status lookup.
 
 ## Install
 
@@ -57,7 +65,7 @@ Use the Java BOM when installing multiple RunAPI Java modules:
 
 ```kotlin
 dependencies {
-  implementation(platform("ai.runapi:runapi-bom:0.9.0"))
+  implementation(platform("ai.runapi:runapi-bom:0.10.0"))
   implementation("ai.runapi:runapi-elevenlabs")
 }
 ```
@@ -123,9 +131,9 @@ Use the most specific ElevenLabs variant page for pricing, rate limits, and comm
 - [Turbo v2.5 text to speech](https://runapi.ai/models/elevenlabs/text-to-speech-turbo-v2.5)
 - [Multilingual v2 text to speech](https://runapi.ai/models/elevenlabs/text-to-speech-multilingual-v2)
 - [Dialogue v3](https://runapi.ai/models/elevenlabs/text-to-dialogue-v3)
-- [Sound effects v2](https://runapi.ai/models/elevenlabs/sound-effect-v2)
-- [Speech to text](https://runapi.ai/models/elevenlabs/speech-to-text)
-- [Audio isolation](https://runapi.ai/models/elevenlabs/audio-isolation)
+- [Sound effects v2 (retired; historical reference)](https://runapi.ai/models/elevenlabs/sound-effect-v2)
+- [Speech to text (retired; historical reference)](https://runapi.ai/models/elevenlabs/speech-to-text)
+- [Audio isolation (retired; historical reference)](https://runapi.ai/models/elevenlabs/audio-isolation)
 
 Default pricing link for the ElevenLabs SDK: https://runapi.ai/models/elevenlabs/text-to-speech-turbo-v2.5
 

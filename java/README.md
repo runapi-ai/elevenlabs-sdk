@@ -10,6 +10,10 @@ This README is the Java package guide inside the public `elevenlabs-sdk` reposit
 
 The Java SDK targets Java 8 bytecode and is tested on Java 8, 11, 17, and 21.
 
+## Audio Isolation retirement
+
+[Audio Isolation](https://runapi.ai/models/elevenlabs/audio-isolation) was retired on 2026-10-09. New `isolate_audio` requests return HTTP 410 before a task is created or any balance is deducted. The model name `audio-isolation` does not map to another model. Existing isolation task IDs remain queryable through the SDK task-status lookup.
+
 ## Install
 
 Gradle:
@@ -34,7 +38,7 @@ Use the BOM when multiple RunAPI Java modules are installed:
 
 ```kotlin
 dependencies {
-  implementation(platform("ai.runapi:runapi-bom:0.9.0"))
+  implementation(platform("ai.runapi:runapi-bom:0.10.0"))
   implementation("ai.runapi:runapi-elevenlabs")
 }
 ```
@@ -47,7 +51,7 @@ Maven BOM:
     <dependency>
       <groupId>ai.runapi</groupId>
       <artifactId>runapi-bom</artifactId>
-      <version>0.9.0</version>
+      <version>0.10.0</version>
       <type>pom</type>
       <scope>import</scope>
     </dependency>

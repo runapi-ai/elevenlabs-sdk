@@ -1,8 +1,12 @@
 # ElevenLabs Go SDK for RunAPI
 
-The ElevenLabs Go SDK is the language-specific package for ElevenLabs on RunAPI. Use this package for voice, dialogue, transcription, sound effect, and audio cleanup workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Go.
+The ElevenLabs Go SDK is the language-specific package for ElevenLabs on RunAPI. Use this package for voice, dialogue, transcription, sound effect workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Go.
 
 This README is the Go package guide inside the public `elevenlabs-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/elevenlabs; for API reference, use https://runapi.ai/docs/api/elevenlabs/text-to-speech; for SDK docs, use https://runapi.ai/docs/resources/sdks.
+
+## Audio Isolation retirement
+
+[Audio Isolation](https://runapi.ai/models/elevenlabs/audio-isolation) was retired on 2026-10-09. New `isolate_audio` requests return HTTP 410 before a task is created or any balance is deducted. The model name `audio-isolation` does not map to another model. Existing isolation task IDs remain queryable through the SDK task-status lookup.
 
 ## Install
 
@@ -32,7 +36,7 @@ RunAPI-generated file URLs are temporary. Download and store generated images, v
 
 ## Language notes
 
-Use the public Go module with `github.com/runapi-ai/core-sdk/go` options when building audio services, CLIs, or workers. The available resources are `TextToSpeech`, `TextToDialogue`, `TextToSound`, `SpeechToText`, and `IsolateAudio`. Keep `RUNAPI_API_KEY` in the environment or your secret manager; never commit API keys or callback secrets.
+Use the public Go module with `github.com/runapi-ai/core-sdk/go` options when building audio services, CLIs, or workers. The available resources are `TextToSpeech`, `TextToDialogue`, `TextToSound`, and `SpeechToText`. Keep `RUNAPI_API_KEY` in the environment or your secret manager; never commit API keys or callback secrets.
 
 ## Links
 

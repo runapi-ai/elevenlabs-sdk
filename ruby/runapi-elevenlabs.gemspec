@@ -10,7 +10,7 @@ Dir.chdir(__dir__) do
     spec.email = ["contact@runapi.ai"]
 
     spec.summary = "ElevenLabs Ruby SDK for RunAPI"
-    spec.description = "The ElevenLabs Ruby SDK is the language-specific package for ElevenLabs on RunAPI. Use this package for voice, dialogue, transcription, sound effect, and audio cleanup workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Ruby."
+    spec.description = "The ElevenLabs Ruby SDK is the language-specific package for ElevenLabs on RunAPI. Use this package for voice, dialogue, transcription, sound effect workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Ruby."
     spec.homepage = "https://runapi.ai/models/elevenlabs"
     spec.license = "Apache-2.0"
     spec.required_ruby_version = ">= 3.1.0"
@@ -25,6 +25,6 @@ Dir.chdir(__dir__) do
     spec.extra_rdoc_files = ["README.md"]
         spec.require_paths = ["lib"]
 
-    spec.add_dependency "runapi-core", "~> 0.6.0"
+    spec.add_dependency "runapi-core", "~> 0.6.1"
   end
 end

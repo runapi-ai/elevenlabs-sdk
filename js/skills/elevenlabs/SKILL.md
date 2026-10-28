@@ -23,6 +23,8 @@ metadata:
 
 # ElevenLabs on RunAPI
 
+Retired versions below are historical references only. Do not select them for a new request.
+
 ## Choose route
 
 - For a one-off artifact or result, use the registered `elevenlabs` service in the `runapi` CLI. If the installed command catalog does not list it, stop and report the missing service instead of inventing a command.
@@ -112,9 +114,16 @@ Use this route only for application or production-code integration. Open the cur
 - SDK integration: https://github.com/runapi-ai/elevenlabs-sdk
 
 ## Variants
-- `audio-isolation`: https://runapi.ai/models/elevenlabs/audio-isolation.md
-- `sound-effect-v2`: https://runapi.ai/models/elevenlabs/sound-effect-v2.md
-- `speech-to-text`: https://runapi.ai/models/elevenlabs/speech-to-text.md
 - `text-to-dialogue-v3`: https://runapi.ai/models/elevenlabs/text-to-dialogue-v3.md
 - `text-to-speech-multilingual-v2`: https://runapi.ai/models/elevenlabs/text-to-speech-multilingual-v2.md
 - `text-to-speech-turbo-v2.5`: https://runapi.ai/models/elevenlabs/text-to-speech-turbo-v2.5.md
+
+## Retired references
+- `audio-isolation` (retired 2026-10-09): https://runapi.ai/models/elevenlabs/audio-isolation.md
+  This model ID is not mapped to another model.
+- `sound-effect-v2` (retired 2026-10-14): https://runapi.ai/models/elevenlabs/sound-effect-v2.md
+  This model ID is not mapped to another model.
+- `speech-to-text` (retired 2026-10-14): https://runapi.ai/models/elevenlabs/speech-to-text.md
+  This model ID is not mapped to another model.
+
+New requests for these versions return HTTP 410 before task creation or balance deduction. Existing task IDs remain queryable through the task-status API. Do not retry task creation with a retired model ID.
